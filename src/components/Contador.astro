@@ -1,0 +1,28 @@
+<script>
+    // Obtén el contador y actualiza su valor
+    function updateCounter() {
+        const contadorElement = document.getElementById('contador');
+        if (contadorElement !== null) {
+            const fechaFinal = new Date('March 4, 2024 00:00:00');
+            setInterval(() => {
+                const fechaActual = new Date();
+                const diferencia = fechaFinal.getTime() - fechaActual.getTime();
+                const segundos = String(Math.floor(diferencia / 1000) % 60).padStart(2, '0');
+                const minutos = String(Math.floor(diferencia / 1000 / 60) % 60).padStart(2, '0');
+                const horas = String(Math.floor(diferencia / 1000 / 60 / 60) % 24).padStart(2, '0');
+                const dias = String(Math.floor(diferencia / 1000 / 60 / 60 / 24)).padStart(2, '0');
+                contadorElement.textContent = `${dias.padStart(2, '0')}:${horas.padStart(2, '0')}:${minutos.padStart(2, '0')}:${segundos.padStart(2, '0')}`;
+            }, 1000);
+        }
+    }
+    
+    // Llama a la función una vez para iniciar el contador
+    updateCounter();
+</script>
+
+<div class="max-w-[91ch] mx-auto pt-10 pb-32 flex flex-col items-center text-2xl">
+    GRAND OPENING
+    <div id="contador" class="text-5xl">
+        PROXIMAMENTE
+    </div>
+</div>
