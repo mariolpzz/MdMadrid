@@ -15,11 +15,13 @@ const { title, description } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="{description}" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/mdmLogoColor.png" />
+		<link rel="icon" href="/MDMfondo.svg" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 		<title>{title}</title>
 	</head>
 	<body>
 		<slot />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 	</body>
 </html>
 <style is:global>
