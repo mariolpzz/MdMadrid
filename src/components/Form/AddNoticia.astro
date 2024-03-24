@@ -1,3 +1,10 @@
+---
+
+import {db, Noticia} from "astro:db";
+const noticias = await db.select().from(Noticia);
+
+---
+
 <div class="flex justify-around">
   <div
     class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
@@ -117,7 +124,7 @@
     >
 
     <button
-      id="guardarBtn"
+      id="subirBtn"
       type="button"
       class="py-2.5 px-5 mb-2 text-sm font-bold text-gray-900 focus:outline-none bg-yellow-400 rounded-lg border border-gray-200 hover:bg-yellow-200 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
       >Subir noticia ⚠️</button
@@ -141,8 +148,12 @@
 </div>
 
 <script>
+import { Noticia } from "astro:db";
+import { db } from "astro:db";
+
   document.addEventListener("DOMContentLoaded", function () {
     const guardarBtn = document.getElementById("guardarBtn");
+    const subirBtn = document.getElementById("subirBtn");
 
     if (guardarBtn !== null) {
       guardarBtn.addEventListener("click", function () {
@@ -219,6 +230,42 @@
       });
     } else {
       console.error("No se encontró el botón de guardar");
+    }
+
+    if (guardarBtn !== null) {
+      guardarBtn.addEventListener("click", function () {
+
+		const tituloElement = document.getElementById("titulo");
+        let titulo = null;
+        if (
+		tituloElement !== null &&
+		tituloElement instanceof HTMLTextAreaElement
+        ) {
+			titulo = tituloElement.value;
+        }
+
+        const imagenElement = document.getElementById("Imagen");
+        let imagenSrc = null;
+        if (
+          imagenElement !== null &&
+          imagenElement instanceof HTMLTextAreaElement
+        ) {
+          imagenSrc = imagenElement.value;
+        }
+
+        const contenidoElement = document.getElementById("Contenido");
+        let contenido = null;
+        if (
+          contenidoElement !== null &&
+          contenidoElement instanceof HTMLTextAreaElement
+        ) {
+          contenido = contenidoElement.value;
+        }
+
+		if (titulo != null && contenido != null) {
+			//db.insert(Noticia).values({titulo, imagenSrc, contenido});
+		}
+      });
     }
   });
 </script>
