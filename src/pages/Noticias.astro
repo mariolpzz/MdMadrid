@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Noticia1 from "../components/Noticia.astro";
+import Footer from "../components/Contact.astro";
+import Header from "../components/Header.astro";
+
+import { db, Noticia } from "astro:db";
+const noticias = await db.select().from(Noticia);
+---
+
+<Layout title="MdMusica" description="Una adicción sin efectos secundarios">
+  <Header />
+  <main class="pt-44">
+    <div class="flex gap-8 p-10 flex-wrap justify-center">
+      {noticias.map((n) => <Noticia1 title={n.titulo} image={n.imagen} />)}
+    </div>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style></style>

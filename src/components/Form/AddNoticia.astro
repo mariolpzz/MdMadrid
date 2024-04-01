@@ -1,8 +1,6 @@
 ---
-
-import {db, Noticia} from "astro:db";
+import { db, Noticia } from "astro:db";
 const noticias = await db.select().from(Noticia);
-
 ---
 
 <div class="flex justify-around">
@@ -148,9 +146,6 @@ const noticias = await db.select().from(Noticia);
 </div>
 
 <script>
-import { Noticia } from "astro:db";
-import { db } from "astro:db";
-
   document.addEventListener("DOMContentLoaded", function () {
     const guardarBtn = document.getElementById("guardarBtn");
     const subirBtn = document.getElementById("subirBtn");
@@ -232,40 +227,6 @@ import { db } from "astro:db";
       console.error("No se encontró el botón de guardar");
     }
 
-    if (guardarBtn !== null) {
-      guardarBtn.addEventListener("click", function () {
-
-		const tituloElement = document.getElementById("titulo");
-        let titulo = null;
-        if (
-		tituloElement !== null &&
-		tituloElement instanceof HTMLTextAreaElement
-        ) {
-			titulo = tituloElement.value;
-        }
-
-        const imagenElement = document.getElementById("Imagen");
-        let imagenSrc = null;
-        if (
-          imagenElement !== null &&
-          imagenElement instanceof HTMLTextAreaElement
-        ) {
-          imagenSrc = imagenElement.value;
-        }
-
-        const contenidoElement = document.getElementById("Contenido");
-        let contenido = null;
-        if (
-          contenidoElement !== null &&
-          contenidoElement instanceof HTMLTextAreaElement
-        ) {
-          contenido = contenidoElement.value;
-        }
-
-		if (titulo != null && contenido != null) {
-			//db.insert(Noticia).values({titulo, imagenSrc, contenido});
-		}
-      });
-    }
+    
   });
 </script>
