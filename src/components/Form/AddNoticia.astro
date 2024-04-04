@@ -13,42 +13,47 @@ const noticias = await db.select().from(Noticia);
 
     <div id="FormInputs">
       <div class="mt-10">
-        <label
-          for="titulo"
-          class="block mb-2 text-sm font-medium text-white dark:text-white"
-          >Título</label
-        >
-        <textarea
-          id="titulo"
-          rows="2"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Escribe aquí el título"></textarea>
+        <form name="formNuevaNoticia" netlify>
+          <label
+            for="titulo"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Título</label
+          >
+          <textarea
+            id="titulo"
+            rows="2"
+            name="Titulo"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
 
-        <br /><br />
+          <br /><br />
 
-        <label
-          for="Imagen"
-          class="block mb-2 text-sm font-medium text-white dark:text-white"
-          >Imagen</label
-        >
-        <textarea
-          id="Imagen"
-          rows="1"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Escribe aquí el título"></textarea>
+          <label
+            for="Imagen"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Imagen</label
+          >
+          <textarea
+            id="Imagen"
+            name="Imagen"
+            rows="1"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
 
-        <br /><br />
+          <br /><br />
 
-        <label
-          for="Contenido"
-          class="block mb-2 text-sm font-medium text-white dark:text-white"
-          >Contenido</label
-        >
-        <textarea
-          id="Contenido"
-          rows="15"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Escribe aquí el título"></textarea>
+          <label
+            for="Contenido"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Contenido</label
+          >
+          <textarea
+            id="Contenido"
+            name="Contenido"
+            rows="15"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
+        </form>
       </div>
     </div>
 
@@ -248,14 +253,16 @@ const noticias = await db.select().from(Noticia);
           const imagenSrc = imagenElement.value;
           const contenido = contenidoElement.value;
 
-          // Insertar los valores en la tabla utilizando AstroDB
+          // Enviar los datos del formulario a la URL de Netlify para procesarlos
           try {
-            const response = await fetch("/api/insertar_noticia", {
+            const response = await fetch("/", {
+              // Cambia esta línea por la URL proporcionada por Netlify para el formulario
               method: "POST",
               headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/x-www-form-urlencoded",
               },
-              body: JSON.stringify({
+              body: new URLSearchParams({
+                "form-name": "formNuevaNoticia",
                 titulo,
                 imagenSrc,
                 contenido,
