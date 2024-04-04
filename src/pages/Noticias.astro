@@ -10,12 +10,18 @@ const noticias = await db.select().from(Noticia);
 
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
   <Header />
-  <main class="pt-44">
-    <h1 class="text-5xl font-bold flex justify-center">Lo último de lo último...</h1>
+  <main
+    class="pt-44"
+    style="background-color: #13151a;
+    opacity: 1;
+    background: repeating-linear-gradient( 45deg, #111216, #111216 20px, #13151a 20px, #13151a 100px );"
+  >
+    <h1 class="text-5xl font-bold flex justify-center">
+      Lo último de lo último...
+    </h1>
     <div class="flex gap-8 p-10 flex-wrap justify-center w-full">
       {noticias.map((n) => <Noticia1 title={n.titulo} image={n.imagen} />)}
     </div>
-
   </main>
   <Footer />
 </Layout>

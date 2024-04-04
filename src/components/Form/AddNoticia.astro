@@ -148,7 +148,6 @@ const noticias = await db.select().from(Noticia);
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const guardarBtn = document.getElementById("guardarBtn");
-    const subirBtn = document.getElementById("subirBtn");
 
     if (guardarBtn !== null) {
       guardarBtn.addEventListener("click", function () {
@@ -226,7 +225,66 @@ const noticias = await db.select().from(Noticia);
     } else {
       console.error("No se encontró el botón de guardar");
     }
+  });
+</script>
 
-    
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const subirBtn = document.getElementById("subirBtn");
+
+    if (subirBtn !== null) {
+      subirBtn.addEventListener("click", async function () {
+        // Obtener los valores del formulario
+        const tituloElement = document.getElementById("titulo");
+        const imagenElement = document.getElementById("Imagen");
+        const contenidoElement = document.getElementById("Contenido");
+
+        if (
+          tituloElement instanceof HTMLTextAreaElement &&
+          imagenElement instanceof HTMLTextAreaElement &&
+          contenidoElement instanceof HTMLTextAreaElement
+        ) {
+          const titulo = tituloElement.value;
+          const imagenSrc = imagenElement.value;
+          const contenido = contenidoElement.value;
+
+          // Insertar los valores en la tabla utilizando AstroDB
+          try {
+            const response = await fetch("/api/insertar_noticia", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                titulo,
+                imagenSrc,
+                contenido,
+              }),
+            });
+
+            if (response.ok) {
+              alert("¡La noticia se ha subido correctamente!");
+              // Lógica adicional si es necesario después de subir la noticia
+            } else {
+              throw new Error("Error al subir la noticia");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert(
+              "Ocurrió un error al subir la noticia. Por favor, inténtalo de nuevo más tarde."
+            );
+          }
+        } else {
+          console.error(
+            "No se pudieron encontrar los elementos del formulario"
+          );
+          alert(
+            "No se pudieron encontrar los elementos del formulario. Por favor, intenta nuevamente."
+          );
+        }
+      });
+    } else {
+      console.error("No se encontró el botón de subir noticia");
+    }
   });
 </script>
