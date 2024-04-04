@@ -5,11 +5,11 @@ const Noticia = defineTable({
     columns: {
         titulo: column.text(),
         imagen: column.text(),
-        contenido: column.text()
+        contenido: column.text(),
     }
 })
 
 
 export default defineDb ({
-    tables: {Noticia},
+    tables: { Noticia },
 });

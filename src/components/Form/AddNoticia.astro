@@ -1,0 +1,256 @@
+---
+import { db, Noticia } from "astro:db";
+
+if (Astro.request.method === "POST") {
+  // parse form data
+  const formData = await Astro.request.formData();
+  const titulo = formData.get("Titulo");
+  const imagen = formData.get("Imagen");
+  const contenido = formData.get("Contenido");
+  if (
+    typeof titulo === "string" &&
+    typeof imagen === "string" &&
+    typeof contenido === "string"
+  ) {
+    // insert form data into the Comment table
+    await db.insert(Noticia).values({ titulo, imagen, contenido });
+  }
+}
+
+const noticias = await db.select().from(Noticia);
+---
+
+<div class="flex justify-around">
+  <div
+    class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
+  >
+    <div class="flex items-end justify-between">
+      <h1 class="text-5xl">Nueva noticia</h1>
+      <a href="/Noticias/" class="">Ver noticias</a>
+    </div>
+    <hr />
+    <br /><br />
+
+    <div id="FormInputs">
+      <div class="mt-10">
+        <form method="POST" name="formNuevaNoticia">
+          <label
+            for="titulo"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Título</label
+          >
+          <textarea
+            id="titulo"
+            rows="2"
+            name="Titulo"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
+
+          <br /><br />
+
+          <label
+            for="Imagen"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Imagen</label
+          >
+          <textarea
+            id="Imagen"
+            name="Imagen"
+            rows="1"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
+
+          <br /><br />
+
+          <label
+            for="Contenido"
+            class="block mb-2 text-sm font-medium text-white dark:text-white"
+            >Contenido</label
+          >
+          <textarea
+            id="Contenido"
+            name="Contenido"
+            rows="15"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Escribe aquí el título"></textarea>
+
+          <div class="flex flex-col">
+            <button
+              id="guardarBtn"
+              type="button"
+              class="mt-20 py-2.5 px-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >Actualizar</button
+            >
+
+            <button
+              id="subirBtn"
+              type="submit"
+              class="py-2.5 px-5 mb-2 text-sm font-bold text-gray-900 focus:outline-none bg-yellow-400 rounded-lg border border-gray-200 hover:bg-yellow-200 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              >Subir noticia ⚠️</button
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--
+    <button
+      id="dropdownDefaultButton"
+      data-dropdown-toggle="dropdown"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      type="button"
+      >Añadir<svg
+        class="w-2.5 h-2.5 ms-3"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 10 6"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 4 4 4-4"></path>
+      </svg>
+    </button>
+
+    <div
+      id="dropdown"
+      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownDefaultButton"
+      >
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Título</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Subtítulo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Parrafo</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Imagen</a
+          >
+        </li>
+      </ul>
+    </div>
+    -->
+  </div>
+
+  <div id="Preview" class="p-20 w-full min-h-screen max-w-4xl">
+    <h1 class="text-5xl">Preview</h1>
+    <hr /><br /><br />
+
+    <h1 id="previewTitle" class="text-5xl mb-7 font-bold"></h1>
+
+    <img
+      src=""
+      id="previewImg"
+      class="rounded-2xl object-cover w-full max-h-80 mb-7"
+    />
+
+    <p id="previewContent" class="text-xl"></p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const guardarBtn = document.getElementById("guardarBtn");
+
+    if (guardarBtn !== null) {
+      guardarBtn.addEventListener("click", function () {
+        // Obtener el valor del textarea para el título
+        const tituloElement = document.getElementById("titulo");
+        if (
+          tituloElement !== null &&
+          tituloElement instanceof HTMLTextAreaElement
+        ) {
+          const titulo = tituloElement.value;
+
+          // Actualizar el contenido del h1 de preview con el valor del textarea
+          const previewTitle = document.getElementById("previewTitle");
+          if (previewTitle !== null) {
+            previewTitle.innerText = titulo;
+          } else {
+            console.error(
+              "No se encontró el elemento de vista previa del título"
+            );
+          }
+        } else {
+          console.error(
+            "No se encontró el elemento del título o no es un textarea"
+          );
+        }
+
+        // Obtener el valor del textarea para la imagen
+        const imagenElement = document.getElementById("Imagen");
+        if (
+          imagenElement !== null &&
+          imagenElement instanceof HTMLTextAreaElement
+        ) {
+          const imagenSrc = imagenElement.value;
+
+          // Actualizar el src de la imagen en la vista previa
+          const previewImg = document.getElementById(
+            "previewImg"
+          ) as HTMLImageElement;
+          if (previewImg !== null) {
+            previewImg.src = imagenSrc;
+          } else {
+            console.error(
+              "No se encontró el elemento de vista previa de la imagen"
+            );
+          }
+        } else {
+          console.error(
+            "No se encontró el elemento de la imagen o no es un textarea"
+          );
+        }
+
+        // Obtener el valor del textarea para el contenido
+        const contenidoElement = document.getElementById("Contenido");
+        if (
+          contenidoElement !== null &&
+          contenidoElement instanceof HTMLTextAreaElement
+        ) {
+          const contenido = contenidoElement.value;
+
+          // Actualizar el contenido del elemento previewContent con el valor del textarea
+          const previewContent = document.getElementById("previewContent");
+          if (previewContent !== null) {
+            previewContent.innerText = contenido;
+          } else {
+            console.error(
+              "No se encontró el elemento de vista previa del contenido"
+            );
+          }
+        } else {
+          console.error(
+            "No se encontró el elemento del contenido o no es un textarea"
+          );
+        }
+      });
+    } else {
+      console.error("No se encontró el botón de guardar");
+    }
+  });
+</script>
