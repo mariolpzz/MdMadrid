@@ -1,6 +1,5 @@
 import { db, Noticia } from "astro:db";
 
-
 export default async function seed() {
 
     await db.insert(Noticia).values([
