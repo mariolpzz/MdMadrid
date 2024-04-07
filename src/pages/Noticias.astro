@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Noticia1 from "../components/Noticia.astro";
 import Carroussel from "../components/Carroussel.astro";
+import Destacadas from "../components/Destacadas.astro";
+import BentoNoticias from "../components/BentoNoticias.astro";
 import Footer from "../components/Contact.astro";
 import Header from "../components/Header.astro";
 
@@ -18,8 +20,10 @@ const noticias = await db.select().from(Noticia);
     background: repeating-linear-gradient( 45deg, #111216, #111216 20px, #13151a 20px, #13151a 100px );"
   >
     <Carroussel />
+    <Destacadas />
+    <BentoNoticias />
     <h1 class="text-5xl font-bold flex justify-center mt-20">
-      Lo último de lo último...
+      Por si te lo perdiste :(
     </h1>
     <div class="flex gap-8 p-10 flex-wrap justify-center w-full">
       {noticias.map((n) => <Noticia1 title={n.titulo} image={n.imagen} />)}
