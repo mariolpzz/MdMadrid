@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Noticia1 from "../components/Noticia.astro";
+import Carroussel from "../components/Carroussel.astro";
 import Footer from "../components/Contact.astro";
 import Header from "../components/Header.astro";
 
@@ -11,12 +12,13 @@ const noticias = await db.select().from(Noticia);
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
   <Header />
   <main
-    class="pt-44"
+    class=""
     style="background-color: #13151a;
     opacity: 1;
     background: repeating-linear-gradient( 45deg, #111216, #111216 20px, #13151a 20px, #13151a 100px );"
   >
-    <h1 class="text-5xl font-bold flex justify-center">
+    <Carroussel />
+    <h1 class="text-5xl font-bold flex justify-center mt-20">
       Lo último de lo último...
     </h1>
     <div class="flex gap-8 p-10 flex-wrap justify-center w-full">
