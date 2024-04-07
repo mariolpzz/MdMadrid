@@ -1,9 +1,9 @@
 ---
-import "@fontsource-variable/onest";
+import '@fontsource-variable/onest'
 
 interface Props {
-  title: string;
-  description: string;
+	title: string;
+	description: string;
 }
 
 const { title, description } = Astro.props;
@@ -11,62 +11,58 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="{description}" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/MDMfondo.svg" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
-    ></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="{description}" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/MDMfondo.svg" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+	</body>
 </html>
 <style is:global>
-  :root {
-    color-scheme: dark;
-  }
-  html {
-    font-family: "Onest Variable", system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-    font-weight: 200;
-  }
+	:root {
+		color-scheme: dark;
+	}
+	html {
+		font-family: 'Onest Variable' ,system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+		font-weight: 200;
+	}
 
-  /* Firefox */
-  * {
+	/* Firefox */
+* {
     scrollbar-width: thin;
-    scrollbar-color: #8e8e8e #ffffff;
-  }
+    scrollbar-color: #8e8e8e #ffffff2a;
+}
 
-  /* Chrome, Edge and Safari */
-  *::-webkit-scrollbar {
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
     width: 8px;
     width: 8px;
-  }
+}
 
-  *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     border-radius: 20px;
     background-color: #ffffff;
-  }
+}
 
-  *::-webkit-scrollbar-track:hover {
+*::-webkit-scrollbar-track:hover {
     background-color: #ffffff;
-  }
+}
 
-  *::-webkit-scrollbar-track:active {
+*::-webkit-scrollbar-track:active {
     background-color: #ffffff;
-  }
+}
 
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background-color: #8e8e8e;
-  }
+}
+
 </style>

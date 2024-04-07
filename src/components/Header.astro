@@ -135,6 +135,13 @@
   #fixedDiv {
     transition: background 0.6s ease;
   }
+
+  .backHeader {
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.8px);
+    -webkit-backdrop-filter: blur(10.8px);
+  }
 </style>
 
 <script>
@@ -142,9 +149,9 @@
     const fixedDiv = document.getElementById("fixedDiv");
     if (fixedDiv != null) {
       if (window.scrollY > 200) {
-        fixedDiv.style.background = "black"; 
+        fixedDiv.classList.add("backHeader")
       } else {
-        fixedDiv.style.background = "transparent";
+        fixedDiv.classList.remove("backHeader")
       }
     }
   });

@@ -14,15 +14,16 @@ const noticias = await db.select().from(Noticia);
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
   <Header />
   <main
-    class=""
-    style="background-color: #13151a;
-    opacity: 1;
-    background: repeating-linear-gradient( 45deg, #111216, #111216 20px, #13151a 20px, #13151a 100px );"
+    style="background-color: #000000;
+    opacity: 0.8;
+    background-image:  linear-gradient(#090909 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(90deg, #090909 2.8000000000000003px, transparent 2.8000000000000003px), linear-gradient(#090909 1.4000000000000001px, transparent 1.4000000000000001px), linear-gradient(90deg, #090909 1.4000000000000001px, #000000 1.4000000000000001px);
+    background-size: 70px 70px, 70px 70px, 14px 14px, 14px 14px;
+    background-position: -2.8000000000000003px -2.8000000000000003px, -2.8000000000000003px -2.8000000000000003px, -1.4000000000000001px -1.4000000000000001px, -1.4000000000000001px -1.4000000000000001px;"
   >
     <Carroussel />
     <Destacadas />
     <BentoNoticias />
-    <h1 class="text-5xl font-bold flex justify-center mt-20">
+    <h1 class="text-5xl flex mt-3 justify-center">
       Por si te lo perdiste :(
     </h1>
     <div class="flex gap-8 p-10 flex-wrap justify-center w-full">
