@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Contact.astro";
+import Header from "../components/Header.astro";
+
+import { db, Noticia } from "astro:db";
+
+export function getStaticPaths() {
+  return [
+    {params: {dog: 'clifford'}},
+    {params: {dog: 'rover'}},
+    {params: {dog: 'spot'}},
+  ];
+}
+
+const tituloN = Astro.params;
+---
+
+<Layout title="MdMusica" description="Una adicción sin efectos secundarios">
+  <Header />
+  <main>
+   
+    <h1>{tituloN}</h1>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style></style>

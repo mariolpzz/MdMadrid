@@ -1,95 +1,219 @@
-<div class="p-20">
+---
+import { db, Noticia, eq, and, desc } from "astro:db";
+
+const noticiasTitulos = new Set(
+  await db
+    .select()
+    .from(Noticia)
+    .orderBy(desc(Noticia.fecha))
+    .limit(14)
+    .then((rows) =>
+      rows.map((row) => {
+        return row.titulo;
+      })
+    )
+);
+
+const noticiasImgs = new Set(
+  await db
+    .select()
+    .from(Noticia)
+    .orderBy(desc(Noticia.fecha))
+    .limit(14)
+    .then((rows) =>
+      rows.map((row) => {
+        return row.imagen;
+      })
+    )
+);
+
+const noticiasTitulosIterator = noticiasTitulos.values();
+const tituloNoticia1 = noticiasTitulosIterator.next().value;
+const tituloNoticia2 = noticiasTitulosIterator.next().value;
+const tituloNoticia3 = noticiasTitulosIterator.next().value;
+const tituloNoticia4 = noticiasTitulosIterator.next().value;
+const tituloNoticia5 = noticiasTitulosIterator.next().value;
+const tituloNoticia6 = noticiasTitulosIterator.next().value;
+const tituloNoticia7 = noticiasTitulosIterator.next().value;
+const tituloNoticia8 = noticiasTitulosIterator.next().value;
+const tituloNoticia9 = noticiasTitulosIterator.next().value;
+const tituloNoticia10 = noticiasTitulosIterator.next().value;
+const tituloNoticia11 = noticiasTitulosIterator.next().value;
+const tituloNoticia12 = noticiasTitulosIterator.next().value;
+const tituloNoticia13 = noticiasTitulosIterator.next().value;
+const tituloNoticia14 = noticiasTitulosIterator.next().value;
+
+
+const noticiasImgsIterator = noticiasImgs.values();
+const imgNoticia1 = noticiasImgsIterator.next().value;
+const imgNoticia2 = noticiasImgsIterator.next().value;
+const imgNoticia3 = noticiasImgsIterator.next().value;
+const imgNoticia4 = noticiasImgsIterator.next().value;
+const imgNoticia5 = noticiasImgsIterator.next().value;
+const imgNoticia6 = noticiasImgsIterator.next().value;
+const imgNoticia7 = noticiasImgsIterator.next().value;
+const imgNoticia8 = noticiasImgsIterator.next().value;
+const imgNoticia9 = noticiasImgsIterator.next().value;
+const imgNoticia10 = noticiasImgsIterator.next().value;
+const imgNoticia11 = noticiasImgsIterator.next().value;
+const imgNoticia12 = noticiasImgsIterator.next().value;
+const imgNoticia13 = noticiasImgsIterator.next().value;
+const imgNoticia14 = noticiasImgsIterator.next().value;
+
+
+---
+<div class="p-6 lg:p-20">
   <h2 class="text-5xl mb-10">Novedades ✨</h2>
-  <div class="grid grid-cols-6 gap-6">
-    <div class="notiContainer col-span-1 row-span-1 relative">
+  <div class="grid grid-cols-3 xl:grid-cols-6 gap-6 text-xl lg:text-2xl">
+    <a href={`/NoticiaContentView?titulo=${tituloNoticia1}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia1}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia1}
+      </p>
+    </a>
+    
+
+    <div class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia2}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia2}
       </p>
     </div>
 
-    <div class="notiContainer col-span-1 row-span-1 relative">
+    <div class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia5}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia5}
       </p>
     </div>
 
-    <div class="notiContainer col-span-1 row-span-1 relative">
+    <div class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia6}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia6}
       </p>
     </div>
 
-    <div class="notiContainer col-span-2 row-span-3 relative">
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia3}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia3}
+      </p>
+    </div>
+    
+
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia4}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia4}
       </p>
     </div>
 
-    <div class="notiContainer col-span-1 row-span-3 relative">
+
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia7}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia7}
       </p>
     </div>
 
-    <div class="notiContainer col-span-3 row-span-3 relative">
+    <div class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia8}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia8}
       </p>
     </div>
+    
 
-    <div class="notiContainer col-span-3 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
-      />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
-      </p>
-    </div>
-
-    <div class="notiContainer col-span-2 row-span-1 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
-      />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
-      </p>
-    </div>
-
-    <div class="notiContainer col-span-1 row-span-1 relative">
+    <div class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
       <img
         class="notiContainer rounded-xl object-cover w-full h-full brightness-50"
-        src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+        src={imgNoticia9}
       />
-      <p class="absolute left-6 bottom-6 text-xl font-bold">
-        Titulo1 asd as dasd asd asd asd asd assdas dasd asd as das dasd
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia9}
       </p>
     </div>
+
+
+    <div class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia10}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia10}
+      </p>
+    </div>
+
+    <div class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia11}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia11}
+      </p>
+    </div>
+
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia12}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia12}
+      </p>
+    </div>
+
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia13}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia13}
+      </p>
+    </div>
+
+    <div class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
+      <img
+        class="rounded-xl object-cover w-full h-full brightness-50"
+        src={imgNoticia14}
+      />
+      <p class="tituloAcortado absolute px-6 bottom-6 font-bold">
+        {tituloNoticia14}
+      </p>
+    </div>
+
+
+
+    
+
   </div>
 </div>
 
@@ -98,6 +222,7 @@
     border-radius: 10px;
     transition: all 0.3s;
     cursor: pointer;
+    max-height: 450px;
   }
 
   .notiContainer:hover {

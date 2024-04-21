@@ -1,0 +1,50 @@
+---
+import { NOW } from "astro:db";
+import Noticia1 from "../components/Noticia.astro";
+import { db, Noticia, gte, and, desc } from "astro:db";
+
+const noticiasTitulos2 = await db
+  .select()
+  .from(Noticia)
+  .orderBy(desc(Noticia.fecha))
+  .limit(6)
+  .offset(2);
+---
+
+<div class="overflow-x-hidden py-10">
+  <div class="flex-container">
+    {
+      noticiasTitulos2.map((n) => (
+        <Noticia1 title={n.titulo} image={n.imagen} />
+      ))
+    }
+
+    {
+      noticiasTitulos2.map((n) => (
+        <Noticia1 title={n.titulo} image={n.imagen} />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+  .flex-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    justify-content: center;
+    animation: moveRightToLeft 15s linear infinite;
+  }
+
+  @keyframes moveRightToLeft {
+    0% {
+      transform: translateX(1476px);
+    }
+    100% {
+      transform: translateX(-1476px);
+    }
+  }
+</style>
