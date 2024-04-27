@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Contact.astro";
+import Header from "../../components/Header.astro";
+import { db, Noticia, eq } from "astro:db";
+
+const { NoticiaContent } = Astro.params;
+const noticiasTitulos = await db.select().from(Noticia).where(eq(Noticia.titulo, NoticiaContent as string));
+
+---
+
+<Layout title="MdMusica" description="Una adicción sin efectos secundarios">
+  <Header />
+  <main class="mt-40 mx-auto px-4 max-w-7xl">
+    {
+      noticiasTitulos.map(({ titulo, imagen, contenido }) => (
+        <article>
+          <h1 class="text-5xl" id="tituloNoticia">{titulo}</h1>
+          <hr>
+          <img class="my-10 w-full rounded-lg object-cover max-h-[600px]" src={imagen}>
+          <p class="text-2xl mb-20">{contenido}</p>
+        </article>
+      ))
+    }
+
+  </main>
+  <Footer />
+</Layout>
