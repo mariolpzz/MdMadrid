@@ -17,16 +17,15 @@ if (Astro.request.method === "POST") {
   }
 }
 
-const noticias = await db.select().from(Noticia);
 ---
 
 <div class="flex justify-around">
   <div
-    class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
+    class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col" 
   >
     <div class="flex items-end justify-between">
       <h1 class="text-5xl">Nueva noticia</h1>
-      <a href="/Noticias/" class="">Ver noticias</a>
+      <a href="/Noticia/" class="">Ver noticias</a>
     </div>
     <hr />
     <br /><br />

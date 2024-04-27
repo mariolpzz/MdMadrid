@@ -16,14 +16,13 @@ const noticiasTitulos = await db.select().from(Noticia).where(eq(Noticia.titulo,
     {
       noticiasTitulos.map(({ titulo, imagen, contenido }) => (
         <article>
-          <h1 class="text-5xl" id="tituloNoticia">{titulo}</h1>
+          <h1 class="text-5xl font-bold" id="tituloNoticia">{titulo}</h1>
           <hr>
           <img class="my-10 w-full rounded-lg object-cover max-h-[600px]" src={imagen}>
           <p class="text-2xl mb-20">{contenido}</p>
         </article>
       ))
     }
-
   </main>
   <Footer />
 </Layout>
