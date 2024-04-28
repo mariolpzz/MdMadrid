@@ -5,7 +5,7 @@ const { color } = Astro.props;
 ---
 
 <div
-  class="art rounded-lg p-10 relative h-80 w-full min-w-[300px]"
+  class="art rounded-lg p-10 relative h-44 sm:h-80 w-full min-w-[300px]"
   style={`background-color: ${color};`}
 >
   <h1 class="text-2xl lg:text-4xl font-semibold z-50 absolute bottom-8 pr-10">{title}</h1>
@@ -15,7 +15,7 @@ const { color } = Astro.props;
       <img
         src={image}
         alt="Imagen"
-        class="rounded-lg h-80 w-auto object-cover"
+        class="rounded-lg h-44 sm:h-80 w-auto object-cover"
       />
     </div>
   </div>

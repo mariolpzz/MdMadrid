@@ -7,15 +7,3 @@ const articulo1 = await db
   .orderBy(desc(Articulo.fecha))
   .limit(1);
 ---
-
-<div>
-  {
-    articulo1.map((n) => (
-      <a href={`/Articulo/${n.titulo}`}>
-
-        <img src={n.imagen} class="w-full max-h-[600px] object-cover">
-
-      </a>
-    ))
-  }
-</div>

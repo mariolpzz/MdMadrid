@@ -15,7 +15,7 @@ const noticiasTitulos = await db
   <HeaderStatic />
   <main class="mt-40 mx-auto px-4 max-w-7xl">
     {
-      noticiasTitulos.map(({ titulo, imagen, contenido }) => (
+      noticiasTitulos.map(({ titulo, imagen, contenido, autor }) => (
         <article>
           <h1 class="text-5xl font-bold" id="tituloNoticia">
             {titulo}
@@ -25,8 +25,11 @@ const noticiasTitulos = await db
             class="my-10 w-full rounded-lg object-cover max-h-[600px]"
             src={imagen}
           />
-          <div id="contenidoParrafos" class="text-2xl mb-20">
+          <div id="contenidoParrafos" class="text-2xl">
             {contenido}
+          </div>
+          <div class="italic text-xl mb-20 text-slate-500">
+            Escrito por {autor}
           </div>
         </article>
       ))

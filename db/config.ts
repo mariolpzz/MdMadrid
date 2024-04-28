@@ -6,6 +6,7 @@ export const Noticia = defineTable({
         titulo: column.text(),
         imagen: column.text(),
         contenido: column.text(),
+        autor: column.text({ default: "" }),
         fecha: column.date({ default: NOW }),
     }
 })
@@ -16,6 +17,7 @@ export const Articulo = defineTable({
         imagen: column.text(),
         contenido: column.text(),
         color: column.text(),
+        autor: column.text({ default: "" }),
         fecha: column.date({ default: NOW }),
     }
 })
