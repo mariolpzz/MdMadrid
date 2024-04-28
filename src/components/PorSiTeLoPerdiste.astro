@@ -1,7 +1,7 @@
 ---
 import { NOW } from "astro:db";
 import Noticia1 from "../components/Noticia.astro";
-import { db, Noticia, gte, and, desc } from "astro:db";
+import { db, Noticia, desc } from "astro:db";
 
 const noticiasTitulos2 = await db
   .select()
@@ -11,7 +11,10 @@ const noticiasTitulos2 = await db
   .offset(2);
 ---
 
-<div class="overflow-x-hidden py-10">
+<h1 class="text-3xl lg:text-5xl flex mt-3 mx-6 justify-center">
+  Por si te lo perdiste :(
+</h1>
+<div class="overflow-x-hidden py:6 lg:py-10">
   <div class="flex-container">
     {
       noticiasTitulos2.map((n) => (

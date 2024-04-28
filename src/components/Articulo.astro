@@ -1,0 +1,47 @@
+---
+const { title } = Astro.props;
+const { image } = Astro.props;
+const { color } = Astro.props;
+---
+
+<div
+  class="art rounded-lg p-10 relative h-80 w-full min-w-[300px]"
+  style={`background-color: ${color};`}
+>
+  <h1 class="text-4xl font-semibold z-50 absolute bottom-8 pr-10">{title}</h1>
+
+  <div class="absolute right-0 top-0">
+    <div class="mask-left-transparent">
+      <img
+        src={image}
+        alt="Imagen"
+        class="rounded-lg h-80 w-auto object-cover"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .mask-left-transparent {
+    -webkit-mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .art {
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .art:hover {
+    transform: scale(1.05);
+    border: 2px solid white;
+  }
+</style>

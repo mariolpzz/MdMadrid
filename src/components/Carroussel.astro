@@ -15,7 +15,7 @@ const noticias = await db.select().from(Noticia);
             class="absolute block h-[100vh] w-[100vw] -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover brightness-50"
             alt={noticia.titulo}
           />
-          <p class="absolute font-black z-30 sm:text-5xl text-3xl bottom-20 px-20">{noticia.titulo}</p>
+          <p class="absolute font-black z-30 sm:text-5xl text-3xl bottom-20 px-6 lg:px-20">{noticia.titulo}</p>
         </div>
       ))
     }

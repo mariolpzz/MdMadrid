@@ -2,20 +2,20 @@
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Contact.astro";
 import HeaderStatic from "../../components/HeaderStatic.astro";
-import { db, Noticia, eq } from "astro:db";
+import { db, eq, Articulo } from "astro:db";
 
-const { NoticiaContent } = Astro.params;
-const noticiasTitulos = await db
+const { ArticuloContent } = Astro.params;
+const articulos = await db
   .select()
-  .from(Noticia)
-  .where(eq(Noticia.titulo, NoticiaContent as string));
+  .from(Articulo)
+  .where(eq(Articulo.titulo, ArticuloContent as string));
 ---
 
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
   <HeaderStatic />
   <main class="mt-40 mx-auto px-4 max-w-7xl">
     {
-      noticiasTitulos.map(({ titulo, imagen, contenido }) => (
+      articulos.map(({ titulo, imagen, contenido }) => (
         <article>
           <h1 class="text-5xl font-bold" id="tituloNoticia">
             {titulo}

@@ -1,0 +1,21 @@
+---
+import { db, Articulo, desc } from "astro:db";
+
+const articulo1 = await db
+  .select()
+  .from(Articulo)
+  .orderBy(desc(Articulo.fecha))
+  .limit(1);
+---
+
+<div>
+  {
+    articulo1.map((n) => (
+      <a href={`/Articulo/${n.titulo}`}>
+
+        <img src={n.imagen} class="w-full max-h-[600px] object-cover">
+
+      </a>
+    ))
+  }
+</div>
