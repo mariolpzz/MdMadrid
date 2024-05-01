@@ -15,13 +15,13 @@ if (Astro.request.method === "POST") {
     typeof contenido === "string" &&
     typeof autor === "string"
   ) {
-    // insert form data into the Comment table
+
     await db.insert(Noticia).values({ titulo, imagen, contenido, autor });
   }
 }
 ---
 
-<div class="flex justify-around">
+<div class="flex justify-around flex-col md:flex-row">
   <div
     class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
   >
