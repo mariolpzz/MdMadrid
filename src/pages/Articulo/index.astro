@@ -18,11 +18,11 @@ const articulos = await db
   <Header />
   <main>
     <Video />
-    <h1 class="text-5xl pb-2 pt-20 m-auto px-6 max-w-[1800px] text-center font-bold">Articulos 📝</h1>
+    <h1 class="text-3xl md:text-5xl pb-2 pt-20 m-auto px-6 max-w-[1800px] text-center font-bold">Articulos 📝</h1>
     <hr class="max-w-[1750px] w-full m-auto px-6 pb-6">
 
     <div
-      class="m-auto px-6 max-w-[1800px] w-full grid grid-cols-1 md:grid-cols-2 gap-8 pb-10"
+      class="m-auto px-6 max-w-[1800px] w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 pb-10"
     >
       {
         articulos.map((n) => (
