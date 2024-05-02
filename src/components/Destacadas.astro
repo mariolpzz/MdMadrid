@@ -1,32 +1,47 @@
 <div
-  class="bg-slate-200 px-10 py-6 w-full flex flex-col rounded-b-[10px] overflow-hidden"
+  class="bg-slate-200 px-2 sm:px-10 py-6 w-full flex flex-col rounded-b-[10px] overflow-hidden overflow-x-hidden"
 >
-  <div class="flex gap-10 justify-center items-center">
+  <h2
+    class="text-lg md:text-2xl font-semibold bg-black w-fit px-4 rounded-md mb-4"
+  >
+    Ultimos lanzamientos
+  </h2>
+  <div class="ultimosLanzamientos flex gap-2 justify-between items-center">
     <img
-      class="rounded-md w-1/5 h-auto object-contain"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVNMOyc6GhvI9OTWqlMHG42ysoptPR8PAYfnOysG_efQ&s"
+      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
+      src="https://www.lahiguera.net/musicalia/artistas/rels_b/disco/13475/rels_b_a_new_star_1_9_9_3-portada.jpg"
     />
     <img
-      class="rounded-md w-1/5 h-auto object-contain"
-      src="https://okdiario.com/img/2023/10/25/feid..jpg"
+      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
+      src="https://www.lahiguera.net/musicalia/artistas/varios/disco/13476/saiko_sakura-portada.jpg"
     />
     <img
-      class="rounded-md w-1/5 h-auto object-contain"
-      src="https://www.billboard.com/wp-content/uploads/2022/10/03-feid-2022-cr-Sebastian-Sanchez-billboard-1548.jpg?w=942&h=623&crop=1"
+      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
+      src="https://www.lahiguera.net/musicalia/artistas/wisin/disco/13462/wisin_mr_w-portada.jpg"
     />
     <img
-      class="rounded-md w-1/5 h-auto object-contain"
-      src="https://imagenes.lainformacion.com/files/og_thumbnail_1900/uploads/imagenes/2023/10/26/dinero-gana-feid-youtube-spotify.jpeg"
+      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
+      src="https://www.lahiguera.net/musicalia/artistas/toteking/disco/13448/toteking_luces_fuera-portada.jpg"
     />
     <img
-      class="rounded-md w-1/5 h-auto object-contain"
-      src="https://www.eldiasegovia.es/media/IMG/2024/C5AF34D4-A14F-F5E1-1746DD14034262DC.JPG"
+      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
+      src="https://www.lahiguera.net/musicalia/artistas/feid/disco/13446/feid_manifesting_20_05___con_yandel-portada.jpg"
     />
   </div>
 </div>
 
 <style>
+  @media (max-width: 800px) {
+    .ultimosLanzamientos {
+      overflow-x: auto;
+    }
+  }
+
   img {
-    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    transition: all 0.3s;
+  }
+
+  img:hover {
+    transform: scale(1.1);
   }
 </style>
