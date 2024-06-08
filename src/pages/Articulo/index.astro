@@ -42,31 +42,6 @@ const articulos = await db
         ))
       }
 
-      {
-        articulos.map((n) => (
-          <a href={`/Articulo/${n.slug}`}>
-            <Articulo1
-              title={n.titulo}
-              image={n.imagen}
-              color={n.color}
-              autor={n.autor}
-            />
-          </a>
-        ))
-      }
-
-      {
-        articulos.map((n) => (
-          <a href={`/Articulo/${n.slug}`}>
-            <Articulo1
-              title={n.titulo}
-              image={n.imagen}
-              color={n.color}
-              autor={n.autor}
-            />
-          </a>
-        ))
-      }
     </div>
   </main>
   <Footer />

@@ -18,7 +18,7 @@ const noticiasTitulos2 = await db
   <div class="flex-container">
     {
       noticiasTitulos2.map((n) => (
-        <a href={`/Noticia/${n.titulo}`}>
+        <a href={`/Noticia/${n.slug}`}>
           <Noticia1 title={n.titulo} image={n.imagen} />
         </a>
       ))
@@ -26,7 +26,7 @@ const noticiasTitulos2 = await db
 
     {
       noticiasTitulos2.map((n) => (
-        <a href={`/Noticia/${n.titulo}`}>
+        <a href={`/Noticia/${n.slug}`}>
           <Noticia1 title={n.titulo} image={n.imagen} />
         </a>
       ))
