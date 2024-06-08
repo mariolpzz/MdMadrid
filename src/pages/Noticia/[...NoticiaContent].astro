@@ -8,7 +8,7 @@ const { NoticiaContent } = Astro.params;
 const noticiasTitulos = await db
   .select()
   .from(Noticia)
-  .where(eq(Noticia.titulo, NoticiaContent as string));
+  .where(eq(Noticia.slug, NoticiaContent as string));
 ---
 
 <Layout

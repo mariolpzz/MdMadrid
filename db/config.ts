@@ -3,6 +3,7 @@ import { defineDb, defineTable, column, NOW } from "astro:db";
 
 export const Noticia = defineTable({
     columns: {
+        slug: column.text({ default: "" }),
         titulo: column.text(),
         imagen: column.text(),
         contenido: column.text(),
@@ -13,6 +14,7 @@ export const Noticia = defineTable({
 
 export const Articulo = defineTable({
     columns: {
+        slug: column.text({ default: "" }),
         titulo: column.text(),
         imagen: column.text(),
         contenido: column.text(),

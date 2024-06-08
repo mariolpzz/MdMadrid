@@ -11,6 +11,20 @@ if (Astro.request.method === "POST") {
   const color = formData.get("Color");
   const autor = formData.get("Autor");
 
+  // Función para generar el slug a partir del título
+  const generateSlug = (str: string): string => {
+    return str
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, "-") // Reemplaza espacios por guiones
+      .replace(/[^\w\-]+/g, "") // Elimina caracteres no alfanuméricos
+      .replace(/\-\-+/g, "-") // Reemplaza múltiples guiones por uno solo
+      .replace(/^-+/, "") // Elimina guiones del principio
+      .replace(/-+$/, ""); // Elimina guiones del final
+  };
+
+  const slug = generateSlug(titulo as string);
+
   if (
     typeof titulo === "string" &&
     typeof imagen === "string" &&
@@ -20,7 +34,7 @@ if (Astro.request.method === "POST") {
   ) {
     await db
       .insert(Articulo)
-      .values({ titulo, imagen, contenido, color, autor });
+      .values({ titulo, imagen, contenido, color, autor, slug });
   }
 }
 ---

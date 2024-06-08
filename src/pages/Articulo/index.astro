@@ -31,7 +31,7 @@ const articulos = await db
     >
       {
         articulos.map((n) => (
-          <a href={`/Articulo/${n.titulo}`}>
+          <a href={`/Articulo/${n.slug}`}>
             <Articulo1
               title={n.titulo}
               image={n.imagen}
@@ -44,7 +44,7 @@ const articulos = await db
 
       {
         articulos.map((n) => (
-          <a href={`/Articulo/${n.titulo}`}>
+          <a href={`/Articulo/${n.slug}`}>
             <Articulo1
               title={n.titulo}
               image={n.imagen}
@@ -57,7 +57,7 @@ const articulos = await db
 
       {
         articulos.map((n) => (
-          <a href={`/Articulo/${n.titulo}`}>
+          <a href={`/Articulo/${n.slug}`}>
             <Articulo1
               title={n.titulo}
               image={n.imagen}

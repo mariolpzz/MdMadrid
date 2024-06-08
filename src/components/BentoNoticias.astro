@@ -14,6 +14,19 @@ const noticiasTitulos = new Set(
     )
 );
 
+const noticiasSlugs = new Set(
+  await db
+    .select()
+    .from(Noticia)
+    .orderBy(desc(Noticia.fecha))
+    .limit(14)
+    .then((rows) =>
+      rows.map((row) => {
+        return row.slug;
+      })
+    )
+);
+
 const noticiasImgs = new Set(
   await db
     .select()
@@ -43,6 +56,21 @@ const tituloNoticia12 = noticiasTitulosIterator.next().value;
 const tituloNoticia13 = noticiasTitulosIterator.next().value;
 const tituloNoticia14 = noticiasTitulosIterator.next().value;
 
+const noticiasSlugsIterator = noticiasSlugs.values();
+const slugNoticia1 = noticiasSlugsIterator.next().value;
+const slugNoticia2 = noticiasSlugsIterator.next().value;
+const slugNoticia3 = noticiasSlugsIterator.next().value;
+const slugNoticia4 = noticiasSlugsIterator.next().value;
+const slugNoticia5 = noticiasSlugsIterator.next().value;
+const slugNoticia6 = noticiasSlugsIterator.next().value;
+const slugNoticia7 = noticiasSlugsIterator.next().value;
+const slugNoticia8 = noticiasSlugsIterator.next().value;
+const slugNoticia9 = noticiasSlugsIterator.next().value;
+const slugNoticia10 = noticiasSlugsIterator.next().value;
+const slugNoticia11 = noticiasSlugsIterator.next().value;
+const slugNoticia12 = noticiasSlugsIterator.next().value;
+const slugNoticia13 = noticiasSlugsIterator.next().value;
+const slugNoticia14 = noticiasSlugsIterator.next().value;
 
 const noticiasImgsIterator = noticiasImgs.values();
 const imgNoticia1 = noticiasImgsIterator.next().value;
@@ -65,7 +93,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
 <div class="p-6 lg:p-20">
   <h2 class="text-4xl lg:text-5xl mb-6 md:mb-10">Novedades ✨</h2>
   <div class="grid grid-cols-3 xl:grid-cols-6 gap-6 text-xl lg:text-2xl">
-    <a href={`/Noticia/${tituloNoticia1}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia1}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia1}
@@ -76,7 +104,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
     </a>
     
 
-    <a href={`/Noticia/${tituloNoticia2}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia2}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia2}
@@ -86,7 +114,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia5}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
+    <a href={`/Noticia/${slugNoticia5}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia5}
@@ -96,7 +124,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia6}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
+    <a href={`/Noticia/${slugNoticia6}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia6}
@@ -106,7 +134,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia3}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
+    <a href={`/Noticia/${slugNoticia3}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia3}
@@ -117,7 +145,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
     </a>
     
 
-    <a href={`/Noticia/${tituloNoticia4}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
+    <a href={`/Noticia/${slugNoticia4}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia4}
@@ -128,7 +156,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
     </a>
 
 
-    <a href={`/Noticia/${tituloNoticia7}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia7}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia7}
@@ -138,7 +166,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia8}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia8}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia8}
@@ -149,7 +177,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
     </a>
     
 
-    <a href={`/Noticia/${tituloNoticia9}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia9}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
       <img
         class="notiContainer rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia9}
@@ -160,7 +188,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
     </a>
 
 
-    <a href={`/Noticia/${tituloNoticia10}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia10}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia10}
@@ -170,7 +198,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia11}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia11}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia11}
@@ -180,7 +208,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia12}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
+    <a href={`/Noticia/${slugNoticia12}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia12}
@@ -190,7 +218,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia13}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
+    <a href={`/Noticia/${slugNoticia13}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia13}
@@ -200,7 +228,7 @@ const imgNoticia14 = noticiasImgsIterator.next().value;
       </p>
     </a>
 
-    <a href={`/Noticia/${tituloNoticia14}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
+    <a href={`/Noticia/${slugNoticia14}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
       <img
         class="rounded-xl object-cover w-full h-full brightness-50"
         src={imgNoticia14}
