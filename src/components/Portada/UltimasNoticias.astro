@@ -1,33 +1,51 @@
-<div class="flex justify-center items-center mt-6">
-  <h1 class="text-center text-3xl border-2 w-fit p-2 rounded-md">Las últimas novedades</h1>
+---
+import type { Articulo } from "astro:db";
+import { db, Noticia, desc } from "astro:db";
+
+const noticias = await db
+  .select()
+  .from(Noticia)
+  .orderBy(desc(Noticia.fecha))
+  .limit(6)
+  .offset(0);
+
+const noticiasIterator = noticias.values();
+const noticia1 = noticiasIterator.next().value;
+const noticia2 = noticiasIterator.next().value;
+const noticia3 = noticiasIterator.next().value;
+const noticia4 = noticiasIterator.next().value;
+---
+
+<a href="/Noticia/" class="flex justify-center items-center mt-6">
+  <h1 class="text-center text-xl lg:text-3xl border-2 w-fit p-2 rounded-md">
+    Las últimas novedades
+  </h1>
+</a>
+
+<div class="grid grid-cols-4 lg:grid-cols-7 grid-rows-5 p-4 w-full gap-6 max-h-[700px] pb-6">
+  <a href={`/Noticia/${noticia1.slug}`} class="col-span-4 row-span-5">
+    <img class="rounded-lg object-cover w-full h-full" src={noticia1.imagen} />
+  </a>
+
+  <a href={`/Noticia/${noticia2.slug}`} class="col-span-2 lg:col-span-3 row-span-2 lg:row-span-3">
+    <img class="rounded-lg object-cover w-full h-full" src={noticia2.imagen} />
+  </a>
+
+  <a href={`/Noticia/${noticia3.slug}`} class="col-span-2 lg:col-span-1 row-span-2">
+    <img class="rounded-lg object-cover w-full h-full" src={noticia3.imagen} />
+  </a>
+
+  <a href={`/Noticia/${noticia4.slug}`} class="col-span-2 row-span-2 hidden lg:block">
+    <img class="rounded-lg object-cover w-full h-full" src={noticia4.imagen} />
+  </a>
 </div>
 
-<div class="grid grid-cols-7 grid-rows-5 p-4 w-full gap-6 max-h-[700px]">
-  <div class="col-span-4 row-span-5">
-    <img
-      class="rounded-lg object-cover w-full h-full"
-      src="https://yt3.googleusercontent.com/_rt-5t30y7UtVvFkdduq4aiU86f1i3E7WnSFKUFnO53yqQZE5uLLoTSBn9uYBYpTe1Hd_rZiiw=s900-c-k-c0x00ffffff-no-rj"
-    />
-  </div>
+<style>
+  img {
+    transition: all 0.4s;
+  }
 
-  <div class="col-span-3 row-span-3">
-    <img
-      class="rounded-lg object-cover w-full h-full"
-      src="https://yt3.googleusercontent.com/_rt-5t30y7UtVvFkdduq4aiU86f1i3E7WnSFKUFnO53yqQZE5uLLoTSBn9uYBYpTe1Hd_rZiiw=s900-c-k-c0x00ffffff-no-rj"
-    />
-  </div>
-
-  <div class="col-span-1 row-span-2">
-    <img
-      class="rounded-lg object-cover w-full h-full"
-      src="https://yt3.googleusercontent.com/_rt-5t30y7UtVvFkdduq4aiU86f1i3E7WnSFKUFnO53yqQZE5uLLoTSBn9uYBYpTe1Hd_rZiiw=s900-c-k-c0x00ffffff-no-rj"
-    />
-  </div>
-
-  <div class="col-span-2 row-span-2">
-    <img
-      class="rounded-lg object-cover w-full h-full"
-      src="https://yt3.googleusercontent.com/_rt-5t30y7UtVvFkdduq4aiU86f1i3E7WnSFKUFnO53yqQZE5uLLoTSBn9uYBYpTe1Hd_rZiiw=s900-c-k-c0x00ffffff-no-rj"
-    />
-  </div>
-</div>
+  img:hover {
+    transform: scale(1.04);
+  }
+</style>

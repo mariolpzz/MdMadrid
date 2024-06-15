@@ -2,7 +2,7 @@
 import Noticia1 from "../Noticia.astro";
 import { db, Noticia, Articulo, desc } from "astro:db";
 
-const noticiasTitulos2 = await db
+const ultimosArticulos = await db
   .select()
   .from(Articulo)
   .orderBy(desc(Articulo.fecha))
@@ -10,36 +10,41 @@ const noticiasTitulos2 = await db
   .offset(0);
 ---
 
-<div id="redesContainer" class="bg-black h-[1100px]">
+<div id="redesContainer" class="bg-black h-[840px] lg:h-[1100px]">
   <img
     src="/MetalFluid.png"
-    class="w-full overflow-hidden h-[1100px] object-cover opacity-65 z-0 absolute"
+    class="w-full overflow-hidden h-[840px] object-cover opacity-65 z-0 absolute"
   />
   <div class="flex justify-center items-center flex-col pt-6">
     <div class="flex justify-center items-center pt-6 z-50">
-      <img src="/TiktokMockup.png" class="w-80" />
-      <img src="/InstaMockup.png" class="w-80" />
+      <a href="https://www.tiktok.com/@mdmusicaa_" target="_blank">
+        <img src="/TiktokMockup.png" class="mockup w-48 lg:w-80" />
+      </a>
+      <img src="/RedesMockup.png" class="mockup w-48 lg:w-80" />
+      <a href="https://www.instagram.com/mdmusicaa_/" target="_blank">
+        <img src="/InstaMockup.png" class="mockup w-48 lg:w-80" />
+      </a>
     </div>
   </div>
 
-  <div class="flex justify-center items-center mt-24">
-    <h1 class="text-center text-3xl border-2 w-fit p-2 rounded-md z-40">
+  <a href="/Articulo/" class="flex justify-center items-center mt-24">
+    <h1 class="text-center text-xl lg:text-3xl border-2 w-fit p-2 rounded-md z-40">
       Artículos destacados
     </h1>
-  </div>
+  </a>
   <div class="overflow-x-hidden pt-4 lg:pb-10">
     <div class="flex-container">
       {
-        noticiasTitulos2.map((n) => (
-          <a href={`/Noticia/${n.slug}`}>
+        ultimosArticulos.map((n) => (
+          <a href={`/Articulo/${n.slug}`}>
             <Noticia1 title={n.titulo} image={n.imagen} />
           </a>
         ))
       }
 
       {
-        noticiasTitulos2.map((n) => (
-          <a href={`/Noticia/${n.slug}`}>
+        ultimosArticulos.map((n) => (
+          <a href={`/Articulo/${n.slug}`}>
             <Noticia1 title={n.titulo} image={n.imagen} />
           </a>
         ))
@@ -49,6 +54,12 @@ const noticiasTitulos2 = await db
 </div>
 
 <style>
+  <style > .mockup {
+    transition: all 2.4s;
+  }
+  .mockup:hover {
+    transform: scale(1.04);
+  }
   .overflow-x-hidden {
     overflow-x: hidden;
   }
