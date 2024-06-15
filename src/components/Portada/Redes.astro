@@ -1,0 +1,71 @@
+---
+import Noticia1 from "../Noticia.astro";
+import { db, Noticia, Articulo, desc } from "astro:db";
+
+const noticiasTitulos2 = await db
+  .select()
+  .from(Articulo)
+  .orderBy(desc(Articulo.fecha))
+  .limit(6)
+  .offset(0);
+---
+
+<div id="redesContainer" class="bg-black h-[1100px]">
+  <img
+    src="/MetalFluid.png"
+    class="w-full overflow-hidden h-[1100px] object-cover opacity-65 z-0 absolute"
+  />
+  <div class="flex justify-center items-center flex-col pt-6">
+    <div class="flex justify-center items-center pt-6 z-50">
+      <img src="/TiktokMockup.png" class="w-80" />
+      <img src="/InstaMockup.png" class="w-80" />
+    </div>
+  </div>
+
+  <div class="flex justify-center items-center mt-24">
+    <h1 class="text-center text-3xl border-2 w-fit p-2 rounded-md z-40">
+      Artículos destacados
+    </h1>
+  </div>
+  <div class="overflow-x-hidden pt-4 lg:pb-10">
+    <div class="flex-container">
+      {
+        noticiasTitulos2.map((n) => (
+          <a href={`/Noticia/${n.slug}`}>
+            <Noticia1 title={n.titulo} image={n.imagen} />
+          </a>
+        ))
+      }
+
+      {
+        noticiasTitulos2.map((n) => (
+          <a href={`/Noticia/${n.slug}`}>
+            <Noticia1 title={n.titulo} image={n.imagen} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+  .flex-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    justify-content: center;
+    animation: moveRightToLeft 25s linear infinite;
+  }
+
+  @keyframes moveRightToLeft {
+    0% {
+      transform: translateX(1476px);
+    }
+    100% {
+      transform: translateX(-1476px);
+    }
+  }
+</style>
