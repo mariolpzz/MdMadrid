@@ -1,18 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Video from '../components/Video.astro';
-import UltimasNoticias from '../components/Portada/UltimasNoticias.astro';
-import Redes from '../components/Portada/Redes.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Video from "../components/Video.astro";
+import Header from "../components/Header.astro";
+import UltimasNoticias from "../components/Portada/UltimasNoticias.astro";
+import Redes from "../components/Portada/Redes.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="MdMusica"
-		description="Una adicción sin efectos secundarios">
-	<Video />
-	<main class="mt-20">
-		<UltimasNoticias />
-		<Redes />
-		<Footer />
-	</main>
+<Layout title="MdMusica" description="Una adicción sin efectos secundarios">
+  <Header />
+  <Video />
+  <main class="mt-20">
+    <UltimasNoticias />
+    <Redes />
+    <Footer />
+  </main>
 </Layout>
-
