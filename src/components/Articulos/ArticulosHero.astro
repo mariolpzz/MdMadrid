@@ -1,11 +1,14 @@
 ---
 import { db, Articulo, desc } from "astro:db";
 
-const articulo1 = await db
+const articulos = await db
   .select()
   .from(Articulo)
   .orderBy(desc(Articulo.fecha))
   .limit(1);
+
+const articulosIterator = articulos.values();
+const articulo1 = articulosIterator.next().value;
 ---
 
 <div
@@ -14,7 +17,7 @@ const articulo1 = await db
 >
   <img
     class="w-full max-h-[950px] object-cover brightness-75"
-    src="https://www.billboard.com/wp-content/uploads/2023/10/bad-bunny-press-2023-billboard-1548.jpg"
+    src={articulo1.imagen}
     style="clip-path: polygon(100% 0, 100% 99%, 84% 93%, 78% 99%, 65% 94%, 50% 99%, 38% 91%, 15% 99%, 0 95%, 0 0);"
   />
 
@@ -22,11 +25,11 @@ const articulo1 = await db
     class="absolute bottom-10 sm:bottom-16 left-10 lg:bottom-24 lg:left-10 max-w-[500px] lg:max-w-[500px] pr-12"
   >
     <h1 class="text-xl lg:text-5xl font-semibold">
-      ¿A que se debe el incomparable éxito del puertorriqueño?
+      {articulo1.titulo}
     </h1>
-    <h3 class="text-md lg:text-2xl">
-      Bad bunny estará de gira por Madrid el proximo verano de 2025
-    </h3>
+    <a href={`/Articulo/${articulo1.slug}`}>
+      <h3 class="text-md lg:text-2xl">Seguir leyendo</h3>
+    </a>
   </div>
 </div>
 
