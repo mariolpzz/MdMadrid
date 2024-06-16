@@ -10,10 +10,10 @@ const ultimosArticulos = await db
   .offset(0);
 ---
 
-<div id="redesContainer" class="bg-black h-[840px] lg:h-[1100px]">
+<div id="redesContainer" class="bg-black h-[740px] lg:h-[1100px]">
   <img
     src="/MetalFluid.png"
-    class="w-full overflow-hidden h-[840px] lg:h-[1100px] object-cover opacity-65 z-0 absolute"
+    class="w-full overflow-hidden h-[740px] lg:h-[1100px] object-cover opacity-65 z-0 absolute"
   />
   <div class="flex justify-center items-center flex-col pt-6">
     <div class="flex justify-center items-center pt-6 z-50">
@@ -68,7 +68,7 @@ const ultimosArticulos = await db
     gap: 20px;
     padding: 10px;
     justify-content: center;
-    animation: moveRightToLeft 25s linear infinite;
+    animation: moveRightToLeft 20s linear infinite;
   }
 
   @keyframes moveRightToLeft {
@@ -79,4 +79,15 @@ const ultimosArticulos = await db
       transform: translateX(-1476px);
     }
   }
+
+  @media (max-width: 1024px) {
+  @keyframes moveRightToLeft {
+    0% {
+      transform: translateX(660px);
+    }
+    100% {
+      transform: translateX(-660px);
+    }
+  }
+}
 </style>

@@ -120,5 +120,37 @@ export default async function seed() {
             color: '#EBEBEB',
             autor: 'Mario López',
         },
+        { 
+            slug: '21-savage-sacara-su-proximo-disco',
+            titulo: '21 Savage sacará su próximo disco',
+            imagen: 'https://i.scdn.co/image/ab6761610000e5eba5e754a9c1fc7ad7ee01798b',
+            contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
+            color: '#DC0019',
+            autor: 'Mario López',
+        },
+        { 
+            slug: 'kendrick-lamar-sorprende-con-2-nuevas-fechas',
+            titulo: 'Kendrick Lamar sorprende con 2 nuevas fechas',
+            imagen: 'https://www.billboard.com/wp-content/uploads/2023/10/kendrick-lamar-2023-met-gala-billboard-1548.jpg',
+            contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
+            color: '#EBEBEB',
+            autor: 'Mario López',
+        },
+        { 
+            slug: '21-savage-sacara-su-proximo-disco',
+            titulo: '21 Savage sacará su próximo disco',
+            imagen: 'https://i.scdn.co/image/ab6761610000e5eba5e754a9c1fc7ad7ee01798b',
+            contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
+            color: '#DC0019',
+            autor: 'Mario López',
+        },
+        { 
+            slug: 'kendrick-lamar-sorprende-con-2-nuevas-fechas',
+            titulo: 'Kendrick Lamar sorprende con 2 nuevas fechas',
+            imagen: 'https://www.billboard.com/wp-content/uploads/2023/10/kendrick-lamar-2023-met-gala-billboard-1548.jpg',
+            contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
+            color: '#EBEBEB',
+            autor: 'Mario López',
+        },
     ]);
 }

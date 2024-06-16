@@ -4,14 +4,14 @@ const { image } = Astro.props;
 ---
 
 <div
-  class="bg-black min-w-[472px] p-4 rounded-md min-h-56 flex flex-col justify-end relative overflow-hidden"
+  class="bg-black w-[200px] lg:w-[472px] p-2 lg:p-4 rounded-md min-h-32 lg:min-h-56 flex flex-col justify-end relative overflow-hidden"
   style={`background-image: url('${image}'); background-size: cover; background-position: center; transition: transform 0.3s ease-in-out;`}
 >
   <div
     class="absolute inset-0 bg-gradient-to-b from-transparent to-black rounded-md"
   >
   </div>
-  <h1 class="text-2xl text-white relative z-10">{title}</h1>
+  <h1 class="text-md lg:text-2xl text-white relative z-10">{title}</h1>
 </div>
 
 <style>

@@ -8,7 +8,7 @@ const noticiasTitulos2 = await db
   .from(Noticia)
   .orderBy(desc(Noticia.fecha))
   .limit(6)
-  .offset(14);
+  .offset(0);
 ---
 
 <h1 class="text-3xl lg:text-5xl flex mt-3 mx-6 justify-center">
@@ -41,9 +41,9 @@ const noticiasTitulos2 = await db
   .flex-container {
     display: flex;
     gap: 20px;
-    padding: 10px;
+    padding: 20px;
     justify-content: center;
-    animation: moveRightToLeft 15s linear infinite;
+    animation: moveRightToLeft 20s linear infinite;
   }
 
   @keyframes moveRightToLeft {
@@ -54,4 +54,16 @@ const noticiasTitulos2 = await db
       transform: translateX(-1476px);
     }
   }
+
+  @media (max-width: 1024px) {
+  @keyframes moveRightToLeft {
+    0% {
+      transform: translateX(660px);
+    }
+    100% {
+      transform: translateX(-660px);
+    }
+  }
+}
+
 </style>
