@@ -2,13 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Video from "../components/Video.astro";
 import Header from "../components/Header.astro";
+import Navbar from "../components/Navbar.astro";
+
 import UltimasNoticias from "../components/Portada/UltimasNoticias.astro";
 import Redes from "../components/Portada/Redes.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
-  <Header />
+  <Navbar />
   <Video />
   <main class="mt-20">
     <UltimasNoticias />

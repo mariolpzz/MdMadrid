@@ -1,19 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Noticia1 from "../../components/Noticia.astro";
 import Carroussel from "../../components/Carroussel.astro";
 import Destacadas from "../../components/Destacadas.astro";
 import BentoNoticias from "../../components/BentoNoticias.astro";
 import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
+import Navbar from "../../components/Navbar.astro";
 import PorSiTeLoPerdiste from "../../components/PorSiTeLoPerdiste.astro";
 
-import { db, Noticia } from "astro:db";
-const noticias = await db.select().from(Noticia);
+
 ---
 
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
-  <Header />
+  <Navbar />
   <main
     style="background-color: #000000;
     opacity: 0.8;

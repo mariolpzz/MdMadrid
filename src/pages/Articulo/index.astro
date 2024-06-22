@@ -2,9 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import Articulo1 from "../../components/Articulo.astro";
 import ArticulosHero from "../../components/Articulos/ArticulosHero.astro";
-import Video from "../../components/Video.astro";
 import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
+import Navbar from "../../components/Navbar.astro";
 
 import { db, Articulo, desc } from "astro:db";
 
@@ -16,7 +15,7 @@ const articulos = await db
 ---
 
 <Layout title="MdMusica" description="Una adicción sin efectos secundarios">
-  <Header />
+  <Navbar />
   <main>
     <ArticulosHero />
     <h1

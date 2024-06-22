@@ -1,0 +1,75 @@
+<section class="flex">
+  <div class="py-8 lg:py-16 px-4 m-auto max-w-screen-md h-full">
+    <h2
+      class="mb-4 text-4xl tracking-tight font-extrabold text-gray-300 dark:text-white font-ones"
+    >
+      Ponte en contacto con nosotros :)
+    </h2>
+
+    <form
+      action="https://formspree.io/f/mgvwwarl"
+      method="POST"
+      class="space-y-8"
+    >
+      <div>
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-400 font-ones"
+          >Tu email</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="font-ones shadow-sm bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+          placeholder="nombre@email.com"
+          required
+        />
+      </div>
+      <div>
+        <label
+          for="subject"
+          class="block mb-2 text-sm font-medium text-gray-400 font-ones"
+          >Asunto</label
+        >
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          class="font-ones block p-3 w-full text-sm text-gray-400 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
+          placeholder="Sobre que nos vas a hablar?"
+          required
+        />
+      </div>
+      <div class="sm:col-span-2">
+        <label
+          for="message"
+          class="font-ones block mb-2 text-sm font-medium text-gray-400"
+          >Mensaje</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          class="font-ones block p-2.5 w-full text-sm text-gray-400 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+          placeholder="Deja tu mensaje"></textarea>
+      </div>
+      <button
+        type="submit"
+        class="font-ones py-3 px-5 text-sm font-bold text-center text-gray-900 rounded-lg bg-white sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300"
+        >Enviar</button
+      >
+    </form>
+  </div>
+</section>
+
+<style>
+  section {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    background: #13151a;
+    background-size: 224px;
+    font-weight: 200;
+    color: white;
+    min-height: 100vh;
+  }
+</style>
