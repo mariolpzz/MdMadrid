@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
-import HeaderStatic from "../../components/HeaderStatic.astro";
+import NavbarStatic from "../../components/NavbarStatic.astro";
 import { db, Noticia, eq } from "astro:db";
 
 const { NoticiaContent } = Astro.params;
@@ -15,8 +15,9 @@ const noticiasTitulos = await db
   title="MdMusica - Noticia"
   description="Una adicción sin efectos secundarios"
 >
-  <HeaderStatic />
-  <main class="mt-32 md:mt-40 mx-auto px-4 max-w-6xl">
+  <NavbarStatic/>
+  <br><br><br><br><br><br>
+  <main class="mx-auto px-4 max-w-6xl">
     {
       noticiasTitulos.map(({ titulo, imagen, contenido, autor }) => (
         <article>
