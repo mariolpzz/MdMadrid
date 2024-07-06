@@ -1,3 +1,13 @@
+---
+import { db, Lanzamientos, desc } from "astro:db";
+
+const lanzamientos = await db
+  .select()
+  .from(Lanzamientos)
+  .orderBy(desc(Lanzamientos.fecha))
+  .limit(5);
+---
+
 <div
   class="bg-slate-200 px-2 sm:px-10 py-6 w-full flex flex-col rounded-b-[10px] overflow-hidden overflow-x-hidden"
 >
@@ -7,26 +17,16 @@
     Ultimos lanzamientos
   </h2>
   <div class="ultimosLanzamientos flex gap-2 justify-between items-center">
-    <img
-      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
-      src="https://www.lahiguera.net/musicalia/artistas/rels_b/disco/13475/rels_b_a_new_star_1_9_9_3-portada.jpg"
-    />
-    <img
-      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
-      src="https://www.lahiguera.net/musicalia/artistas/varios/disco/13476/saiko_sakura-portada.jpg"
-    />
-    <img
-      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
-      src="https://www.lahiguera.net/musicalia/artistas/wisin/disco/13462/wisin_mr_w-portada.jpg"
-    />
-    <img
-      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
-      src="https://www.lahiguera.net/musicalia/artistas/toteking/disco/13448/toteking_luces_fuera-portada.jpg"
-    />
-    <img
-      class="rounded-md w-1/6 min-w-[150px] h-auto object-cover"
-      src="https://www.lahiguera.net/musicalia/artistas/feid/disco/13446/feid_manifesting_20_05___con_yandel-portada.jpg"
-    />
+    {
+      lanzamientos.map((lanzamiento) => (
+        <a class="w-1/6 min-w-[150px]" href={lanzamiento.url} target="_blank">
+          <img
+            class="rounded-md h-auto object-cover"
+            src={lanzamiento.imagen}
+          />
+        </a>
+      ))
+    }
   </div>
 </div>
 

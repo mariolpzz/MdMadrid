@@ -24,8 +24,15 @@ export const Articulo = defineTable({
     }
 })
 
+export const Lanzamientos = defineTable({
+    columns: {
+        url: column.text(),
+        imagen: column.text(),
+        fecha: column.date({ default: NOW }),
+    }
+})
 
 
 export default defineDb ({
-    tables: { Noticia, Articulo },
+    tables: { Noticia, Articulo, Lanzamientos },
 });

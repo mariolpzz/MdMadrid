@@ -1,4 +1,4 @@
-import { db, Noticia, Articulo } from "astro:db";
+import { db, Noticia, Articulo, Lanzamientos } from "astro:db";
 
 export default async function seed() {
 
@@ -151,6 +151,30 @@ export default async function seed() {
             contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
             color: '#EBEBEB',
             autor: 'Mario López',
+        },
+    ]);
+
+
+    await db.insert(Lanzamientos).values([
+        { 
+            url: 'https://open.spotify.com/intl-es/album/6MxVqDR6nACRxGSePfK9y4',
+            imagen: 'https://www.lahiguera.net/musicalia/artistas/rels_b/disco/13475/rels_b_a_new_star_1_9_9_3-portada.jpg',
+        },
+        { 
+            url: 'https://open.spotify.com/intl-es/album/5z4aZJ5U7LqwRc2tXk98cc',
+            imagen: 'https://www.lahiguera.net/musicalia/artistas/varios/disco/13476/saiko_sakura-portada.jpg',
+        },
+        { 
+            url: 'https://open.spotify.com/intl-es/album/3ajL8VGPHoWxKl2rsQtdGX',
+            imagen: 'https://www.lahiguera.net/musicalia/artistas/wisin/disco/13462/wisin_mr_w-portada.jpg',
+        },
+        { 
+            url: 'https://open.spotify.com/intl-es/album/4ZdVjircdr00BoV0XoYgh9',
+            imagen: 'https://www.lahiguera.net/musicalia/artistas/toteking/disco/13448/toteking_luces_fuera-portada.jpg',
+        },
+        { 
+            url: 'https://open.spotify.com/intl-es/album/5WTsC6KDdxp9xVQrAMIU6c',
+            imagen: 'https://www.lahiguera.net/musicalia/artistas/feid/disco/13446/feid_manifesting_20_05___con_yandel-portada.jpg',
         },
     ]);
 }
