@@ -36,7 +36,7 @@ if (Astro.request.method === "POST") {
 
 <div class="flex justify-around flex-col md:flex-row">
   <div
-    class="p-20 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
+    class="sm:p-20 p-6 bg-black border-r-4 w-full max-w-screen-lg min-h-screen flex flex-col"
   >
     <div class="flex items-end justify-between">
       <h1 class="text-5xl">Nueva noticia</h1>
@@ -72,7 +72,7 @@ if (Astro.request.method === "POST") {
             name="Imagen"
             rows="1"
             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escribe aquí el título"></textarea>
+            placeholder="Escribe aquí el enlace de la imagen"></textarea>
 
           <br /><br />
 
@@ -86,7 +86,7 @@ if (Astro.request.method === "POST") {
             name="Contenido"
             rows="15"
             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Escribe aquí el título"></textarea>
+            placeholder="Escribe aquí el contenido"></textarea>
 
           <br /><br />
 

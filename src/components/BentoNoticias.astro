@@ -1,242 +1,33 @@
 ---
-import { db, Noticia, eq, and, desc } from "astro:db";
+import { db, Noticia, desc } from "astro:db";
 
-const noticiasTitulos = new Set(
-  await db
-    .select()
-    .from(Noticia)
-    .orderBy(desc(Noticia.fecha))
-    .limit(14)
-    .then((rows) =>
-      rows.map((row) => {
-        return row.titulo;
-      })
-    )
-);
-
-const noticiasSlugs = new Set(
-  await db
-    .select()
-    .from(Noticia)
-    .orderBy(desc(Noticia.fecha))
-    .limit(14)
-    .then((rows) =>
-      rows.map((row) => {
-        return row.slug;
-      })
-    )
-);
-
-const noticiasImgs = new Set(
-  await db
-    .select()
-    .from(Noticia)
-    .orderBy(desc(Noticia.fecha))
-    .limit(14)
-    .then((rows) =>
-      rows.map((row) => {
-        return row.imagen;
-      })
-    )
-);
-
-const noticiasTitulosIterator = noticiasTitulos.values();
-const tituloNoticia1 = noticiasTitulosIterator.next().value;
-const tituloNoticia2 = noticiasTitulosIterator.next().value;
-const tituloNoticia3 = noticiasTitulosIterator.next().value;
-const tituloNoticia4 = noticiasTitulosIterator.next().value;
-const tituloNoticia5 = noticiasTitulosIterator.next().value;
-const tituloNoticia6 = noticiasTitulosIterator.next().value;
-const tituloNoticia7 = noticiasTitulosIterator.next().value;
-const tituloNoticia8 = noticiasTitulosIterator.next().value;
-const tituloNoticia9 = noticiasTitulosIterator.next().value;
-const tituloNoticia10 = noticiasTitulosIterator.next().value;
-const tituloNoticia11 = noticiasTitulosIterator.next().value;
-const tituloNoticia12 = noticiasTitulosIterator.next().value;
-const tituloNoticia13 = noticiasTitulosIterator.next().value;
-const tituloNoticia14 = noticiasTitulosIterator.next().value;
-
-const noticiasSlugsIterator = noticiasSlugs.values();
-const slugNoticia1 = noticiasSlugsIterator.next().value;
-const slugNoticia2 = noticiasSlugsIterator.next().value;
-const slugNoticia3 = noticiasSlugsIterator.next().value;
-const slugNoticia4 = noticiasSlugsIterator.next().value;
-const slugNoticia5 = noticiasSlugsIterator.next().value;
-const slugNoticia6 = noticiasSlugsIterator.next().value;
-const slugNoticia7 = noticiasSlugsIterator.next().value;
-const slugNoticia8 = noticiasSlugsIterator.next().value;
-const slugNoticia9 = noticiasSlugsIterator.next().value;
-const slugNoticia10 = noticiasSlugsIterator.next().value;
-const slugNoticia11 = noticiasSlugsIterator.next().value;
-const slugNoticia12 = noticiasSlugsIterator.next().value;
-const slugNoticia13 = noticiasSlugsIterator.next().value;
-const slugNoticia14 = noticiasSlugsIterator.next().value;
-
-const noticiasImgsIterator = noticiasImgs.values();
-const imgNoticia1 = noticiasImgsIterator.next().value;
-const imgNoticia2 = noticiasImgsIterator.next().value;
-const imgNoticia3 = noticiasImgsIterator.next().value;
-const imgNoticia4 = noticiasImgsIterator.next().value;
-const imgNoticia5 = noticiasImgsIterator.next().value;
-const imgNoticia6 = noticiasImgsIterator.next().value;
-const imgNoticia7 = noticiasImgsIterator.next().value;
-const imgNoticia8 = noticiasImgsIterator.next().value;
-const imgNoticia9 = noticiasImgsIterator.next().value;
-const imgNoticia10 = noticiasImgsIterator.next().value;
-const imgNoticia11 = noticiasImgsIterator.next().value;
-const imgNoticia12 = noticiasImgsIterator.next().value;
-const imgNoticia13 = noticiasImgsIterator.next().value;
-const imgNoticia14 = noticiasImgsIterator.next().value;
-
-
+const noticias = await db
+  .select()
+  .from(Noticia)
+  .orderBy(desc(Noticia.fecha))
+  .limit(14);
 ---
+
 <div class="p-6 lg:p-20">
   <h2 class="text-4xl lg:text-5xl mb-6 md:mb-10">Novedades ✨</h2>
   <div class="grid grid-cols-3 2xl:grid-cols-6 gap-6 text-lg xl:text-xl">
-    <a href={`/Noticia/${slugNoticia1}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia1}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia1}
-      </p>
-    </a>
-    
-
-    <a href={`/Noticia/${slugNoticia2}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia2}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia2}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia5}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia5}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia5}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia6}`} class="notiContainer col-span-3 md:col-span-1 row-span-1 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia6}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia6}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia3}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia3}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia3}
-      </p>
-    </a>
-    
-
-    <a href={`/Noticia/${slugNoticia4}`} class="notiContainer col-span-3 md:col-span-3 row-span-3 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia4}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia4}
-      </p>
-    </a>
-
-
-    <a href={`/Noticia/${slugNoticia7}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia7}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia7}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia8}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia8}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia8}
-      </p>
-    </a>
-    
-
-    <a href={`/Noticia/${slugNoticia9}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
-      <img
-        class="notiContainer rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia9}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia9}
-      </p>
-    </a>
-
-
-    <a href={`/Noticia/${slugNoticia10}`} class="notiContainer col-span-3 md:col-span-2 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia10}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia10}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia11}`} class="notiContainer col-span-3 md:col-span-1 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia11}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia11}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia12}`} class="notiContainer col-span-3 md:col-span-3 row-span-2 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia12}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia12}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia13}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia13}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia13}
-      </p>
-    </a>
-
-    <a href={`/Noticia/${slugNoticia14}`} class="notiContainer col-span-3 md:col-span-3 row-span-1 relative">
-      <img
-        class="rounded-xl object-cover w-full h-full brightness-50"
-        src={imgNoticia14}
-      />
-      <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-        {tituloNoticia14}
-      </p>
-    </a>
+    {noticias.map((noticia, index) => (
+      <Fragment key={index}>
+        <a
+          href={`/Noticia/${noticia.slug}`}
+          class={`notiContainer col-span-3 md:col-span-${[1,5,6,7,12,13,14].includes(index + 1) ? 3 : [3,4,8,11].includes(index + 1) ? 1 : 2} 
+            row-span-${[1,2,7,8,9,10,11,12].includes(index + 1) ? 2 : [3,4,13,14].includes(index + 1) ? 1 : 2} relative`}
+        >
+          <img
+            class="rounded-xl object-cover w-full h-full brightness-50"
+            src={noticia.imagen}
+          />
+          <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
+            {noticia.titulo}
+          </p>
+        </a>
+      </Fragment>
+    ))}
   </div>
 </div>
 
