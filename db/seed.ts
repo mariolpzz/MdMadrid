@@ -19,7 +19,7 @@ export default async function seed() {
         },
         { 
             slug: 'los-conciertos-de-kendrick-no-dejan-de-sorprender-en-europa',
-            titulo: 'Los conciertos de Kendrick no dejan de sorprender en Europa',
+            titulo: 'Los conciertos de Kendrick no dejan de sorprender en Europa bla bla bla bla bl abl abl abl abl',
             imagen: 'https://static.eldiario.es/clip/127625b0-e505-475d-8546-18e6f611bcec_16-9-discover-aspect-ratio_default_0.jpg',
             contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
             autor: 'Mario López',
@@ -114,7 +114,7 @@ export default async function seed() {
         },
         { 
             slug: 'kendrick-lamar-sorprende-con-2-nuevas-fechas',
-            titulo: 'Kendrick Lamar sorprende con 2 nuevas fechas',
+            titulo: 'Kendrick Lamar sorprende con 2 nuevas fechas bla bla bla bla bla bla bla bla ',
             imagen: 'https://www.billboard.com/wp-content/uploads/2023/10/kendrick-lamar-2023-met-gala-billboard-1548.jpg',
             contenido: 'Shéyaa Bin Abraham-Joseph (22 de octubre de 1992), más conocido por su nombre artístico 21 Savage es un rapero y compositor británico, lanzó el sencillo, "Picky", producido por DJ Plugg. Fue lanzado más adelante en su mixtape del principio, la cinta de la matanza, lanzada el 25 de mayo de 2015.1​ El 2 de julio de 2015, Savage lanzó un EP colaborativo, Free Guwop, con Sonny digital.2​ Es un homenaje EP a su compañero rapero e influencia Gucci Mane. El 1 de diciembre de 2015, 21 Savage lanzó su segundo mixtape, Slaughter king.',
             color: '#EBEBEB',

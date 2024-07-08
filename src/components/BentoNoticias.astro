@@ -1,5 +1,6 @@
 ---
 import { db, Noticia, desc } from "astro:db";
+import { truncateTitle } from "./utils.ts";
 
 const noticias = await db
   .select()
@@ -23,7 +24,7 @@ const noticias = await db
             src={noticia.imagen}
           />
           <p class="tituloAcortado absolute px-2 xl:px-6 bottom-2 xl:bottom-6 font-bold">
-            {noticia.titulo}
+            {truncateTitle(noticia.titulo)}
           </p>
         </a>
       </Fragment>

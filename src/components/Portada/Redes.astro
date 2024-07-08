@@ -1,6 +1,7 @@
 ---
 import Noticia1 from "../Noticia.astro";
 import { db, Noticia, Articulo, desc } from "astro:db";
+import { truncateTitle } from "../utils.ts";
 
 const ultimosArticulos = await db
   .select()
@@ -37,7 +38,7 @@ const ultimosArticulos = await db
       {
         ultimosArticulos.map((n) => (
           <a href={`/Articulo/${n.slug}`}>
-            <Noticia1 title={n.titulo} image={n.imagen} />
+            <Noticia1 title={truncateTitle(n.titulo)} image={n.imagen} />
           </a>
         ))
       }
@@ -45,7 +46,7 @@ const ultimosArticulos = await db
       {
         ultimosArticulos.map((n) => (
           <a href={`/Articulo/${n.slug}`}>
-            <Noticia1 title={n.titulo} image={n.imagen} />
+            <Noticia1 title={truncateTitle(n.titulo)} image={n.imagen} />
           </a>
         ))
       }
